@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+github3-py = "==2.0.0"
+
+[scripts]
+get_stats = "python3 repo_stats.py"
+
+[requires]
+python_version = "3.9"

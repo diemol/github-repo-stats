@@ -1,0 +1,4 @@
+*.json
+.venv
+*pycache*
+.DS_Store
