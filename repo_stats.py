@@ -8,7 +8,7 @@ GITHUB_ORG = environ.get("GITHUB_ORG", None)
 GITHUB_REPO = environ.get("GITHUB_REPO", None)
 GITHUB_TOKEN = environ.get("GITHUB_TOKEN", None)
 REPO_DATA_FILE = f"{GITHUB_ORG.lower()}_{GITHUB_REPO.lower()}_data.json"
-PROCESSED_DATA_FILE = f"pages/{GITHUB_ORG.lower()}_{GITHUB_REPO.lower()}/data.js"
+PROCESSED_DATA_FILE = f"docs/{GITHUB_ORG.lower()}_{GITHUB_REPO.lower()}/data.js"
 
 def import_data():
   """This function gets the issue data
