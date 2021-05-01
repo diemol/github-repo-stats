@@ -71,3 +71,6 @@ const yearlyChart = bb.generate({
   },
   bindto: "#yearlyData"
 });
+
+const lastUpdate = document.getElementById("lastUpdate") ;
+lastUpdate.innerHTML = "Last update: " + window.lastUpdate;

@@ -31,6 +31,7 @@ def import_data():
   with open(REPO_DATA_FILE, 'w') as json_file:
     json.dump(data, json_file, cls=DateTimeEncoder)
 
+
 def process_data():
   """This function processes the issue data
   and aggregates them by date"""
@@ -177,15 +178,18 @@ def process_data():
   open_issues += "]"
   open_pull_requests += "]"
   yearly_processed_data = f"window.yearlyData = [{dates}, {open_issues}, {open_pull_requests}];"
+  last_update = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S %Z")
+  last_data_update = f"window.lastUpdate = '{last_update}';"
+  print("Processing completed!")
 
-  print(f"Processing completed!")
-
+  print("Saving data...")
   with open(PROCESSED_DATA_FILE, 'w') as json_file:
     json_file.write(f"{daily_processed_data}\n")
     json_file.write(f"{last_thirty_days_processed_data}\n")
     json_file.write(f"{monthly_processed_data}\n")
     json_file.write(f"{yearly_processed_data}\n")
-
+    json_file.write(f"{last_data_update}\n")
+  print("... done!")
 
 import_data()
 process_data()
