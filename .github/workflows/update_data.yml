@@ -1,6 +1,10 @@
 name: Updating data for stats
 
-on: [push]
+on: 
+  push:
+  schedule:
+    # Every day at 7:15 and 17:15 UTC:
+    - cron:  '15 5,17 * * *'
 
 jobs:
   build:
@@ -43,7 +47,7 @@ jobs:
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git commit -m "Add changes" -a
+        git commit -m "Update data" -a
     - name: Commit updated data
       uses: ad-m/github-push-action@master
       with:
