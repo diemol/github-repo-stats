@@ -28,4 +28,4 @@ Install `pipenv`
 `export GITHUB_REPO`
 `export GITHUB_TOKEN`
 
-`pipenv run status`
+`pipenv run get_stats`
