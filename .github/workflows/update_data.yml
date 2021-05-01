@@ -18,3 +18,29 @@ jobs:
         python -m pip install --upgrade pip
         pip install pipenv
         pipenv install
+    - name: Update data for SeleniumHQ/selenium
+      run: |
+        pipenv run status
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_ORG: "seleniumhq"
+        GITHUB_REPO: "selenium"
+    - name: Update data for SeleniumHQ/docker-selenium
+      run: |
+        pipenv run status
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_ORG: "seleniumhq"
+        GITHUB_REPO: "docker-selenium"        
+    - name: Update data for SeleniumHQ/selenium-ide
+      run: |
+        pipenv run status
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_ORG: "seleniumhq"
+        GITHUB_REPO: "selenium-ide"
+    - name: Commit updated data
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main
